@@ -1,0 +1,33 @@
+name: Demo_actions
+
+on:
+  #triggers
+  push:
+    branches: ["main"]
+  # to manually trigger the workflow 
+  workflow_dispatch:
+
+jobs:
+  #job name (demo_build)
+  demo_build:
+    # on which runner our code is going to run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a demo script
+        run: echo Hi, Hello!
+      - name: Run a mutli-line script
+        run: |
+          echo Hi
+          echo Hello!
+          
+  demo_build_2:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a demo script
+        run: echo Hi, Hello!
+      - name: Run a mutli-line script
+        run: |
+          echo Hi
+          echo Hello!
